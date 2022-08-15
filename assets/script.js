@@ -1,36 +1,32 @@
 var currentTime = moment().format("dddd, MMMM Do YYYY");
 $("#currentDay").text(currentTime);
 
-function saveBtn() {
-
+function saveBtn(event) {
+//console.log(event)
+if (event.target.nodeName === "BUTTON"){
+  console.log(event)
+  var id= event.target.attributes[1].nodeValue
+  var inputValue = $("." + id).val()
+    console.log(inputValue)
+    localStorage.setItem(id, inputValue)
+}
 }
 
-function hourTracker() {
-  //get current number of hours.
-  var currentHour = moment().hour();
+for (let i=8; i < 20; i++) {
+  var timeBlock = $("#hour" + i)
+  var currentHour = moment().format("HH")
 
-  // loop over time blocks
-  $(".time-block").each(function () {
-      var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-      console.log( blockHour, currentHour)
-
-      //checks the current time and classifies it as past, present or future with parameters
-      if (blockHour < currentHour) {
-          $(this).addClass("past");
-          $(this).removeClass("future");
-          $(this).removeClass("present");
-      }
-      else if (blockHour === currentHour) {
-          $(this).removeClass("past");
-          $(this).addClass("present");
-          $(this).removeClass("future");
-      }
-      else {
-          $(this).removeClass("present");
-          $(this).removeClass("past");
-          $(this).addClass("future");
-      }
-      //console.log("test");
-  })
+  if (currentHour > i) {
+    timeBlock.addClass("past")
+  }
+  console.log (currentHour, i)
+  if (currentHour == i) {
+    timeBlock.addClass("present")
+  }
+  if (currentHour < i) {
+    timeBlock.addClass("future")
+  }
+  $("." + i).val(localStorage.getItem(i))
 }
-hourTracker();
+
+$(".hours").click(saveBtn)
