@@ -43,3 +43,5 @@ This last 2 weeks played largely into the material used for this assignment. We 
 link to the deployed site: https://mwells012.github.io/TimeToPlan/
 
 The following image show the web application's appearance and functionality:
+[https://github.com/MWells012/5-TimeToPlan/blob/main/assets/photos/Screen%20Shot%202022-08-16%20at%209.22.48%20PM.png]
+[https://github.com/MWells012/5-TimeToPlan/blob/main/assets/photos/Screen%20Shot%202022-08-16%20at%209.24.50%20PM.png]
